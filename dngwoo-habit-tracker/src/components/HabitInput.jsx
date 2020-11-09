@@ -9,6 +9,7 @@ const HabitInput = () => {
   const onChangeHabit = (e) => {
     setHabit(e.currentTarget.value);
   };
+
   const onSubmit = (e) => {
     e.preventDefault();
     const createdAt = new Date().getTime();
@@ -36,7 +37,7 @@ const HabitInput = () => {
           <HabitList habit={val.habit} key={val.createdAt} />
         ))}
       </ul>
-      <input type="reset" value="Reset All" />
+      <button type="button">Reset All</button>
     </div>
   );
 };

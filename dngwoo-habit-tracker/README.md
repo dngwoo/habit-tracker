@@ -3,7 +3,7 @@
 - [x] 기본 html
 - [x] create 기능 구현 - HabitInput.jsx
 - [ ] Delete 기능 구현 - HabitInput.jsx
-- [ ] + 기능 구현 - HabitList.jsx
+- [x] + 기능 구현 - HabitList.jsx
 - [ ] - 기능 구현 - HabitList.jsx
 - [ ] delete 기능 구현 - HabitList.jsx
 - [ ] Header 기능 구현 - HabitHeader.jsx
