@@ -8,6 +8,12 @@ const HabitList = ({ habit }) => {
     setCount(count + 1);
   };
 
+  const minusCount = () => {
+    if (count > 0) {
+      setCount(count - 1);
+    }
+  };
+
   return (
     <li className="habites__item">
       <div>{habit}</div>
@@ -15,7 +21,9 @@ const HabitList = ({ habit }) => {
       <button type="button" onClick={addCount}>
         +
       </button>
-      <button type="button">-</button>
+      <button type="button" onClick={minusCount}>
+        -
+      </button>
       <button type="button">Delete</button>
     </li>
   );
