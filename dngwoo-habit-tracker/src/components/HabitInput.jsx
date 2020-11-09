@@ -15,10 +15,14 @@ const HabitInput = () => {
     const createdAt = new Date().getTime();
     setHabits((prevArray) => [
       ...prevArray,
-      { habit, createdAt: String(createdAt) },
+      { value: habit, createdAt: String(createdAt) },
     ]);
     setHabit("");
     addInput.current.focus();
+  };
+
+  const deleteHabit = (createdAt) => {
+    setHabits(habits.filter((val) => val.createdAt !== createdAt));
   };
 
   return (
@@ -34,7 +38,11 @@ const HabitInput = () => {
       </form>
       <ul className="habits__list">
         {habits.map((val) => (
-          <HabitList habit={val.habit} key={val.createdAt} />
+          <HabitList
+            habit={val}
+            key={val.createdAt}
+            deleteHabit={deleteHabit}
+          />
         ))}
       </ul>
       <button type="button">Reset All</button>

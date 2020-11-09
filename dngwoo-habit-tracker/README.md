@@ -5,6 +5,6 @@
 - [ ] Delete 기능 구현 - HabitInput.jsx
 - [x] + 기능 구현 - HabitList.jsx
 - [x] - 기능 구현 - HabitList.jsx
-- [ ] delete 기능 구현 - HabitList.jsx
+- [x] delete 기능 구현 - HabitList.jsx
 - [ ] Header 기능 구현 - HabitHeader.jsx
  
