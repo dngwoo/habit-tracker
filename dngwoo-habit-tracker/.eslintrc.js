@@ -17,5 +17,8 @@ module.exports = {
     sourceType: "module",
   },
   plugins: ["react"],
-  rules: {},
+  rules: {
+    "no-param-reassign": "off",
+    "no-unused-expressions": "off",
+  },
 };
