@@ -27,7 +27,7 @@
     ```
     상위 컴포넌트에서 받은 함수를 실행할때 만약 인자를 넘기면서 실행시키기 위해선 이렇게 함수를 만들어서 사용해야 된다.
     
-2. shape
+1. shape
     ```javascript
     HabitList.propTypes = {
     habit: PropTypes.shape({
@@ -40,11 +40,11 @@
 
     shape나 objectOf를 사용하면 object에 들어가는 프로퍼티들 타입을 정의 할 수 있다.
    
-3. 상태관리의 필요성   
+1. 상태관리의 필요성   
     데이터가 단방향으로만 흐르기 때문에 상태(state)를 컴포넌트를 짤 때 구성을 잘 해놓아야 될 것 같다.   
     왜냐하면 하위에서 상위로 state를 전달 할 방법이 없기 때문이다.   
     
-4. Strict Mode
+1. Strict Mode<br>
     공식 [en-docs](https://reactjs.org/docs/strict-mode.html#detecting-unexpected-side-effects)에서 찾아 볼 수 있다. [kor-docs](https://ko.reactjs.org/docs/strict-mode.html)
 
     간단한게 설명해서 side effect를 탐지용으로 사용된다. side effect란 화면이 렌더링 된 이후 비동기로 처리되어야 하는 부수적인 효과들을 말한다.
