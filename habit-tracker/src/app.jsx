@@ -15,11 +15,12 @@ class App extends Component {
   handleIncrement = habit => {
     const habits = this.state.habits.map(item => {
       if (item.id === habit.id) {
+        // 새 배열을 반환해서 setState로 값을 바꿔주면 PureComponent가 반응한다.
         return { ...habit, count: habit.count + 1 };
       }
       return item;
     });
-    this.setState({ habits });
+    this.setState({ habits }); 
   };
 
   handleDecrement = habit => {

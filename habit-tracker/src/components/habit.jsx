@@ -14,7 +14,7 @@ class Habit extends PureComponent {
   };
 
   render() {
-    const { name, count } = this.props.habit;
+    const { name, count } = this.props.habit; // props가 바뀐것을 PureComponent가 감지해서 리랜더링한다.
     console.log(`habit: ${name}`);
     return (
       <li className="habit">
