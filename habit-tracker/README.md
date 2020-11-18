@@ -54,6 +54,24 @@
     콘솔로 리랜더링되는지 확인하지말고 react dev tools에 있는 highlight기능을 사용하면 된다.
     <br>
     <br>
-1. Strict Mode<br>
 
+1. Hooks
+    훅은 함수형 컴포넌트에서 state와 lifecycle 함수를 사용하기 위해 만들어졌다.<br>
+    간단히 정리해보자
+    - this를 사용하지 않는다.
+    - 코드 중복을 줄일 수 있다.
+    - 클래스의 멤버변수는 한번 만들어지고 나서 다시 할당되어지지 않는다.
+    - 훅은 prop이나 state가 바뀌면 {} 코드 블럭 자체가 전부 반복되서 호출되어진다. 그러므로 코드 블럭안에 있는 지역변수들이 재호출 된다. onClick에 넣어둔 지역변수(함수)는 다시 만들어지므로 onClick을 들고 있는 태그는 리랜더링 되어진다. (함수도 object이다)
+    - useState 같은 경우 함수형 컴포넌트가 업데이트되어져도 기본값으로 초기화되지 않는다. 그 이유는 react가 메모리상에 올려두고 계속 가져와주기 때문이다.
+    - React.createRef를 사용하게 되면 함수형 컴포넌트는 {} 블럭 안이 전부 업데이트(재실행) 되기 때문에 React.createRef도 게속 새로 생성되게 된다. 그것을 막기 위해 useRef를 사용한다. 이것 또한 메모리에 올려두고 가져와서 재사용하게 된다.
+    - PureComponent와 동일한 효과를 내는 memo를 사용하게 되도 위에서 말한 함수들은 새로운 오브젝트가 되므로 그 오브젝트를 받는 태그는 리랜더링 되어지는 SideEffect가 있다. 그것을 해결하기 위해서 useCallback, useMemo를 사용한다.
+    - useEffect란 componentDidMount와 componentDidUpdate와 유사한 훅이다. 즉 컴포넌트가 마운트 될때 한번 실행되고 props나 state가 update될때 마다 실행된다. 하지만 문제점이 있다. 만약 componentDidMount일때 데이터를 받아와야하는 로직이 있는 상황에서이다. 이럴 때에는 deps라는 두번째 인자를 활용한다.
+        ```jsx
+        // 이렇게 작성하게되면 count가 바뀔 때만 useEffect가 동작한다.
+        useEffect(()=>{ console.log(count) }, [count])
+
+        // []를 주면 mount될때 한번만 실행
+        // [count]를 주면 mount될때 한번, count가 변경될 때 마다 실행([count, age, name] 이런식으로 도 가능)
+        // 안주게 되면 mount되고 state, props가 바뀔때 마다 실행
+        ```
 
